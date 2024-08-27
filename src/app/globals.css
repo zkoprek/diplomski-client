@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: url("../../public/bg-photo.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
+  font-size: 18px;
+  color: white;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+th {
+  text-align: left;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  border: 0px solid transparent;
+  background-clip: padding-box;
+}
+
+tr > td + td {
+  border-left-width: 10px;
+}
+
+tr + tr > td {
+  border-top-width: 10px;
+}
+
+select {
+  appearance: none;
+  background: black;
+}
+
+image {
+  width: auto;
+}
+
+.leagues-div {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.leagues-div.open {
+  max-height: 1000px; /* or any maximum height you expect */
+}
