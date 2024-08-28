@@ -29,10 +29,12 @@ interface ILiveGameProps {
 
 function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
   const determineInitialWidth = () => {
-    if (window.innerWidth < 1280) {
-      return true;
-    } else {
-      return false;
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 1280) {
+        return true;
+      } else {
+        return false;
+      }
     }
   };
 
@@ -45,7 +47,7 @@ function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
   };
 
   const [isMobile, setIsMobile] = useState<boolean>(
-    determineInitialWidth()
+    !determineInitialWidth()
   );
   const [content, setContent] = useState<ILiveGame[]>([]);
   const [chosenMatchID, setChosenMatchID] = useState<number>();

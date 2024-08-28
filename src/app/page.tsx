@@ -8,10 +8,12 @@ import MobileMenu from "@/components/MobileMenu";
 
 function Page() {
   const determineInitialWidth = () => {
-    if (window.innerWidth < 1280) {
-      return true;
-    } else {
-      return false;
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 1280) {
+        return true;
+      } else {
+        return false;
+      }
     }
   };
 
@@ -25,7 +27,7 @@ function Page() {
 
   const [activeCol, setActiveCol] = useState<string>("live");
   const [isMobile, setIsMobile] = useState<boolean>(
-    determineInitialWidth()
+    !determineInitialWidth()
   );
 
   useEffect(() => {

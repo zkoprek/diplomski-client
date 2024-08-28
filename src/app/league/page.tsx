@@ -39,10 +39,12 @@ interface ITeam {
 
 function Page() {
   const determineInitialWidth = () => {
-    if (window.innerWidth < 1280) {
-      return true;
-    } else {
-      return false;
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 1280) {
+        return true;
+      } else {
+        return false;
+      }
     }
   };
 
@@ -62,7 +64,7 @@ function Page() {
   const selectSeasonRef = useRef<HTMLSelectElement>(null);
 
   const [isMobile, setIsMobile] = useState<boolean>(
-    determineInitialWidth()
+    !determineInitialWidth()
   );
 
   useEffect(() => {

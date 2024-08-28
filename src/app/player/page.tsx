@@ -14,10 +14,12 @@ import PlayerSeasons from "./components/PlayerSeasons";
 
 function Page() {
   const determineInitialWidth = () => {
-    if (window.innerWidth < 1280) {
-      return true;
-    } else {
-      return false;
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 1280) {
+        return true;
+      } else {
+        return false;
+      }
     }
   };
 
@@ -35,7 +37,7 @@ function Page() {
   const [activeCol, setActiveCol] = useState<string>("basic");
   const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState<boolean>(
-    determineInitialWidth()
+    !determineInitialWidth()
   );
 
   useEffect(() => {
