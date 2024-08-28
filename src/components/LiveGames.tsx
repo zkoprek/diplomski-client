@@ -58,7 +58,6 @@ function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
   }, []);
 
   socket.on("live_games", (data) => {
-    console.log("Primljen emit live games", Date.now());
     setContent(data);
   });
 
@@ -66,7 +65,6 @@ function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
     socket.emit("live_games", false);
     socket.emit("live_games", true);
     return () => {
-      console.log("emittam live_games FALSE");
       socket.emit("live_games", false);
     };
   }, []);
