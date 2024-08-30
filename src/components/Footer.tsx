@@ -31,7 +31,7 @@ function Footer() {
           className="rounded-md"
         />
       </Link>
-      <div className="flex h-20 items-center text-center px-4 text-xs">
+      <div className="flex h-20 items-center text-right px-4 text-xs">
         Made by Zvonimir Koprek <br />
         FOI Varaždin, 2024.
       </div>

@@ -7,16 +7,6 @@ import Footer from "@/components/Footer";
 import MobileMenu from "@/components/MobileMenu";
 
 function Page() {
-  const determineInitialWidth = () => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 1280) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  };
-
   const handleResize = () => {
     if (window.innerWidth < 1280) {
       setIsMobile(true);
@@ -26,9 +16,7 @@ function Page() {
   };
 
   const [activeCol, setActiveCol] = useState<string>("live");
-  const [isMobile, setIsMobile] = useState<boolean>(
-    !determineInitialWidth()
-  );
+  const [isMobile, setIsMobile] = useState<boolean>();
 
   useEffect(() => {
     handleResize();

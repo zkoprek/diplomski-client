@@ -53,21 +53,21 @@ function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
   const [chosenMatchID, setChosenMatchID] = useState<number>();
 
   useEffect(() => {
+    console.log("Šaljem emit za incijalizaciju");
     handleResize();
     window.addEventListener("resize", handleResize);
+    socket.emit("live_games", false);
+    setTimeout(() => {
+      socket.emit("live_games", true);
+    }, 200);
+    return () => {
+      socket.emit("live_games", false);
+    };
   }, []);
 
   socket.on("live_games", (data) => {
     setContent(data);
   });
-
-  useEffect(() => {
-    socket.emit("live_games", false);
-    socket.emit("live_games", true);
-    return () => {
-      socket.emit("live_games", false);
-    };
-  }, []);
 
   useEffect(() => {
     if (chosenMatchID && setActiveCol) setActiveCol("details");
