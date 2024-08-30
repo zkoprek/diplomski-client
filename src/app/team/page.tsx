@@ -64,6 +64,7 @@ function Page() {
   });
 
   socket.on("get_match_future", (data: ILiveGame[]) => {
+    console.log(data.length);
     setMatchFuture(data);
   });
 
