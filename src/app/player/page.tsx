@@ -101,6 +101,13 @@ function Page() {
                 </>
               )}
             </div>
+            {playerSeasons[0] == 0 && (
+              <>
+                <div className="text-center">
+                  No Info for this Player!
+                </div>
+              </>
+            )}
           </>
         ) : (
           <>

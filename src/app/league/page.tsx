@@ -134,7 +134,7 @@ function Page() {
             </div>
             <div className="w-fit">
               <div className="flex mt-4 py-1 px-[6px]">
-                <div className="w-8 mr-3 text-center">#</div>
+                <div className="w-8 mr-2 text-center">#</div>
                 <div className="mr-3" style={{ width: "25px" }}></div>
                 <div className="w-72 text-left">Team</div>
                 <div className="w-14 text-center">P</div>

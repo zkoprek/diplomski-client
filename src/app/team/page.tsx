@@ -160,7 +160,7 @@ function Page() {
         ) : (
           <>
             {h1content ? (
-              <div className="flex w-full justify-center items-center gap-3 mb-5">
+              <div className="flex w-full justify-center items-center gap-3 mb-4">
                 <Image
                   src={
                     h1content.logo ? h1content.logo : "/no-image.png"

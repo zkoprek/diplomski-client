@@ -26,7 +26,7 @@ function MobileMenu({
   return (
     <div className={`xl:hidden h-16 mb flex mb-2 ${divStyling}`}>
       <div
-        className={`basis-1/3 border-r-2 border-slate-800 flex justify-center items-center ${
+        className={`basis-1/3 border-r-2 border-slate-800 flex justify-center items-center rounded-l-md ${
           activeCol == firstCol && "bg-slate-800"
         }`}
         onClick={() => setActiveCol!(firstCol)}
@@ -58,7 +58,7 @@ function MobileMenu({
         />
       </div>
       <div
-        className={`basis-1/3 flex justify-center items-center ${
+        className={`basis-1/3 flex justify-center items-center rounded-r-md ${
           activeCol == thirdCol && "bg-slate-800"
         }`}
         onClick={() => setActiveCol!(thirdCol)}
