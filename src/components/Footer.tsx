@@ -4,20 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 function Footer() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  const handleResize = () => {
-    if (window.innerWidth < 1200) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  });
-
   return (
     <footer className="flex justify-between w-full mt-5 bg-matchPitchBg rounded-t-xl border-t-2 border-x-2 border-slate-800">
       <Link href="/">

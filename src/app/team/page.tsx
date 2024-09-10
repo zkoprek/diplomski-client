@@ -38,9 +38,7 @@ function Page() {
   };
 
   const [activeCol, setActiveCol] = useState<string>("details");
-  const [isMobile, setIsMobile] = useState<boolean>(
-    !determineInitialWidth()
-  );
+  const [isMobile, setIsMobile] = useState<boolean>();
   const searchParams = useSearchParams();
   const teamID = searchParams.get("id");
   const [matchHistory, setMatchHistory] = useState<ILiveGame[]>();
@@ -55,6 +53,7 @@ function Page() {
   }, [teamID]);
 
   useEffect(() => {
+    setIsMobile(determineInitialWidth);
     handleResize();
     window.addEventListener("resize", handleResize);
   }, []);

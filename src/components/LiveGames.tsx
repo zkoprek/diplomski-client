@@ -46,14 +46,12 @@ function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
     }
   };
 
-  const [isMobile, setIsMobile] = useState<boolean>(
-    !determineInitialWidth()
-  );
+  const [isMobile, setIsMobile] = useState<boolean>();
   const [content, setContent] = useState<ILiveGame[]>([]);
   const [chosenMatchID, setChosenMatchID] = useState<number>();
 
   useEffect(() => {
-    console.log("Šaljem emit za incijalizaciju");
+    setIsMobile(determineInitialWidth);
     handleResize();
     window.addEventListener("resize", handleResize);
     socket.emit("live_games", false);
@@ -73,7 +71,7 @@ function LiveGames({ activeCol, setActiveCol }: ILiveGameProps) {
     if (chosenMatchID && setActiveCol) setActiveCol("details");
   }, [chosenMatchID, setActiveCol]);
 
-  return content.length > 0 ? (
+  return content ? (
     <div className="block xl:flex xl:basis-3/4 w-full gap-4">
       {((activeCol == "live" && isMobile) || !isMobile) && (
         <div

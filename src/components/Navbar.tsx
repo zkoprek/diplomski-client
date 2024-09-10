@@ -37,7 +37,7 @@ function Navbar() {
   const inputRefMobile = useRef<HTMLInputElement>(null);
   const [contentSearch, setContentSearch] =
     useState<ISearchPlayer[]>();
-  const [isMobile, setIsMobile] = useState(determineInitialWidth());
+  const [isMobile, setIsMobile] = useState<boolean>();
   const [mobileSearchActive, setMobileSearchActive] = useState(false);
 
   const checkIfEnter: React.KeyboardEventHandler<HTMLDivElement> = (
@@ -76,13 +76,11 @@ function Navbar() {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsMobile(determineInitialWidth());
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
+    setIsMobile(determineInitialWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return isMobile ? (

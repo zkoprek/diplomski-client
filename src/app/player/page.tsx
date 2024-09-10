@@ -36,11 +36,10 @@ function Page() {
   const [lastSeason, setLastSeason] = useState<string>();
   const [activeCol, setActiveCol] = useState<string>("basic");
   const searchParams = useSearchParams();
-  const [isMobile, setIsMobile] = useState<boolean>(
-    !determineInitialWidth()
-  );
+  const [isMobile, setIsMobile] = useState<boolean>();
 
   useEffect(() => {
+    setIsMobile(determineInitialWidth);
     handleResize();
     window.addEventListener("resize", handleResize);
   }, []);
